@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48739b93e1cf90445b364417a01a511e, type: 3}
-  m_Name: QAndA 1
+  m_Name: YesNo 3
   m_EditorClassIdentifier: 
-  question: Who's hotter, Elliott Gould or Donald Sutherland?
+  question: Have you ever met anyone involved in this case before?
   answers:
-  - answer: Elliott Gould
-    value: 3
-  - answer: Donald Sutherland
-    value: -3
-  silliness: 3
+  - answer: Yes
+    value: -5
+  - answer: No
+    value: 2
+  silliness: 0

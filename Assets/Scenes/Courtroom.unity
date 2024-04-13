@@ -168,6 +168,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: 89fc275b5b453af41b58b101971ec873, type: 2}
+  questionText: {fileID: 1377772433}
+  answerText1: {fileID: 646109452}
+  answerText2: {fileID: 550011933}
+--- !u!114 &550011933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5106182306238543166, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 716682796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &646109452 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5106182306238543166, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8521703151571214802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &679211231
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +429,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 470838268}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonAnswer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4706703680227647430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -505,7 +572,7 @@ PrefabInstance:
     - target: {fileID: 5106182306238543166, guid: 1bde4e5481dd96642a0c8732994d5f7a,
         type: 3}
       propertyPath: m_text
-      value: No
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -680,7 +747,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Have you ever served on a jury before?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -911,6 +978,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 470838268}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonAnswer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387634781690459430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4706703680227647430, guid: 1bde4e5481dd96642a0c8732994d5f7a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1014,7 +1116,7 @@ PrefabInstance:
     - target: {fileID: 5106182306238543166, guid: 1bde4e5481dd96642a0c8732994d5f7a,
         type: 3}
       propertyPath: m_text
-      value: Yes
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
