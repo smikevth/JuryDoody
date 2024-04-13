@@ -117,9 +117,10 @@ public class GameManager : MonoBehaviour
     public void ButtonAnswer(int index)
     {
 
-        Debug.Log("current score" + gameData.selectionScore);
+        
         //increment score
         gameData.selectionScore += currentQuestion.answers[index].value;
+        Debug.Log("current score" + gameData.selectionScore);
         //remove question index
         gameData.questionsIndexes.RemoveAt(0);
         //make next question

@@ -17,4 +17,5 @@ MonoBehaviour:
   - answer: Yes
     value: -1
   - answer: No
-    value: 1
+    value: 2
+  silliness: 0
