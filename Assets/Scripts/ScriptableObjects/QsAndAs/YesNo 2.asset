@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48739b93e1cf90445b364417a01a511e, type: 3}
   m_Name: YesNo 2
   m_EditorClassIdentifier: 
-  question: Do you like my tie?
+  question: Do you like my hair?
   answers:
   - answer: Yes
     value: 1

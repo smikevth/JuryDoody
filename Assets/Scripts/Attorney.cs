@@ -8,10 +8,16 @@ public class Attorney : MonoBehaviour
     GameData gameData;
     [SerializeField]
     GameObject cam;
+    [SerializeField]
+    SpriteRenderer mouth;
+    [SerializeField]
+    List<Sprite> mouthList; //1st in the list is the default
     private bool paceSet = true; //to toggle between pace direction and facing camera
     private float range = 2.0f; //pacing range. attorney starts at x=-2 and will pace to x=2 they turn
     private int direction = 1; //should be 1 for moving toward camera right, -1 for left
     private float moveSpeed = 1.0f;
+
+    private float mouthTimer = 0.0f; //to pace mouth animation
 
     // Start is called before the first frame update
     void Start()
@@ -42,15 +48,22 @@ public class Attorney : MonoBehaviour
     {
         transform.LookAt(cam.transform);
         paceSet = false;
+        mouthTimer += Time.deltaTime;
+        if(mouthTimer >= gameData.textSpeed)
+        {
+            mouthTimer -= gameData.textSpeed;
+            int rand = Random.Range(0, mouthList.Count);
+            mouth.sprite = mouthList[rand];
+        }
         //animate mouth if I add one
     }
 
     private void SetPace()
     {
+        mouth.sprite = mouthList[0];
         Quaternion target = Quaternion.Euler(0, 90.0f*direction, 0);
         transform.rotation = target;
         paceSet = true;
-        Debug.Log("set pace");
     }
 
     private void Pace()
