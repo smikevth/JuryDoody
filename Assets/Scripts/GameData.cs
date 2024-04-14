@@ -12,4 +12,8 @@ public class GameData : ScriptableObject
     public List<QAndA> questions; //list of all questions and their answers/data
     [HideInInspector]
     public List<int> questionsIndexes; //a list of the indexes of questions that haven't been asked yet
+    
+    public float textSpeed = 0.05f; //s to wait better letters
+    [HideInInspector]
+    public bool skipText = false; //set to true to click through text printing
 }

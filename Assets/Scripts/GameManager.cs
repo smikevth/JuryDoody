@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject restartButton;
 
+    
+
     private QAndA currentQuestion;
 
     // Start is called before the first frame update
@@ -81,9 +83,12 @@ public class GameManager : MonoBehaviour
             if (!errors)
             {
                 //set q and a texts
-                questionText.text = currentQuestion.question;
+                
+                StartCoroutine(TypeQuestion(currentQuestion.question));
+                answerButtons.SetActive(true);
                 answerText1.text = currentQuestion.answers[0].answer;
                 answerText2.text = currentQuestion.answers[1].answer;
+                
             }
             else
             {
@@ -107,6 +112,21 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //types out the question text one letter at a time. Will try and implement a click to finish. might need to make switch it to change color instead of type if word wrapping is funky
+    private IEnumerator TypeQuestion(string theText)
+    {
+        questionText.text = "";
+        for (int i=0; i<theText.Length; i++)
+        {
+            questionText.text += theText[i];
+            if(!gameData.skipText)
+            {
+                yield return new WaitForSeconds(gameData.textSpeed);
+            }
+        }
+        
+    }
+
     //when true, the restart button will be enabled and answer buttons will be disabled
     private void ToggleRestartButton(bool value)
     {
@@ -116,8 +136,7 @@ public class GameManager : MonoBehaviour
 
     public void ButtonAnswer(int index)
     {
-
-        
+        answerButtons.SetActive(false);
         //increment score
         gameData.selectionScore += currentQuestion.answers[index].value;
         Debug.Log("current score" + gameData.selectionScore);
