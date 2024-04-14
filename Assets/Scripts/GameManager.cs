@@ -84,10 +84,7 @@ public class GameManager : MonoBehaviour
             if (!errors)
             {
                 //set q and a texts
-                
                 StartCoroutine(TypeQuestion(currentQuestion.question));
-                
-                
             }
             else
             {

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private float sensitivity = 1.0f;
     //private float yAngle = 0.0f; 
     //private float xAngle =0.0f; 
     private float maxX = 30.0f; //x-mouse, look left right
