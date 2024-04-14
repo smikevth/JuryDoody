@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //sets the questions text and answer buttons based on the current index. Refactor out the index stuff and make it take a qanda as argument
     private void MakeQuestion()
     {
         //check if any questions are left
