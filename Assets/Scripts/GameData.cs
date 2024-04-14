@@ -16,4 +16,7 @@ public class GameData : ScriptableObject
     public float textSpeed = 0.05f; //s to wait better letters
     [HideInInspector]
     public bool skipText = false; //set to true to click through text printing
+    [HideInInspector]
+    public bool textIsPrinting = false; //set to true while printing text
+
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 
@@ -85,9 +86,7 @@ public class GameManager : MonoBehaviour
                 //set q and a texts
                 
                 StartCoroutine(TypeQuestion(currentQuestion.question));
-                answerButtons.SetActive(true);
-                answerText1.text = currentQuestion.answers[0].answer;
-                answerText2.text = currentQuestion.answers[1].answer;
+                
                 
             }
             else
@@ -112,10 +111,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //types out the question text one letter at a time. Will try and implement a click to finish. might need to make switch it to change color instead of type if word wrapping is funky
+    //types out the question text one letter at a time. Can click to finish. might need to make switch it to change color instead of type if word wrapping is funky
     private IEnumerator TypeQuestion(string theText)
     {
         questionText.text = "";
+        gameData.textIsPrinting = true;
         for (int i=0; i<theText.Length; i++)
         {
             questionText.text += theText[i];
@@ -124,7 +124,11 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(gameData.textSpeed);
             }
         }
-        
+        gameData.textIsPrinting = false;
+        gameData.skipText = false;
+        answerButtons.SetActive(true);
+        answerText1.text = currentQuestion.answers[0].answer;
+        answerText2.text = currentQuestion.answers[1].answer;
     }
 
     //when true, the restart button will be enabled and answer buttons will be disabled
@@ -144,5 +148,13 @@ public class GameManager : MonoBehaviour
         gameData.questionsIndexes.RemoveAt(0);
         //make next question
         MakeQuestion();
+    }
+
+    public void SkipText(InputAction.CallbackContext context)
+    {
+        if(context.performed && gameData.textIsPrinting && !gameData.skipText)
+        {
+            gameData.skipText = true;
+        }
     }
 }
