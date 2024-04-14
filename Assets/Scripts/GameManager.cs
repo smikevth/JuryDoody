@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     public void InitializeGame()
     {
         ResetData();
-        ToggleRestartButton(false);
+        restartButton.SetActive(false);
         //make 1st Q and A
         MakeQuestion();
     }
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
                 questionText.text = "You have been excused, you win";
             }
             Debug.Log("final score " + gameData.selectionScore);
-            ToggleRestartButton(true);
+            restartButton.SetActive(true);
         }
 
     }
@@ -131,12 +131,7 @@ public class GameManager : MonoBehaviour
         answerText2.text = currentQuestion.answers[1].answer;
     }
 
-    //when true, the restart button will be enabled and answer buttons will be disabled
-    private void ToggleRestartButton(bool value)
-    {
-        restartButton.SetActive(value);
-        answerButtons.SetActive(!value);
-    }
+
 
     public void ButtonAnswer(int index)
     {
