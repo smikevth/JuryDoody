@@ -23,10 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject restartButton;
 
-    
-
-    private QAndA currentQuestion;
-
+    private QAndA currentQandA;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +41,7 @@ public class GameManager : MonoBehaviour
         ResetData();
         restartButton.SetActive(false);
         //make 1st Q and A
-        MakeQuestion();
+        NextQuestion();
     }
 
     private void ResetData()
@@ -57,45 +54,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //sets the questions text and answer buttons based on the current index. Refactor out the index stuff and make it take a qanda as argument
-    private void MakeQuestion()
+    //selects the question based on the current index and calls makequestion
+    private void NextQuestion()
     {
         //check if any questions are left
-        if(gameData.questionsIndexes.Count > 0)
+        if (gameData.questionsIndexes.Count > 0)
         {
             //select question from gameData list using questionsIndex. Will just go in order for now
-            currentQuestion = gameData.questions[gameData.questionsIndexes[0]];
-            //null checks
-            bool errors = false;
-            if (currentQuestion.question == null)
-            {
-                Debug.Log("missing question text at index " + gameData.questionsIndexes[0]);
-                errors = true;
-            }
-            if (currentQuestion.answers[0] == null)
-            {
-                Debug.Log("missing answer1 text at index " + gameData.questionsIndexes[0]);
-                errors = true;
-            }
-            if (currentQuestion.answers[1] == null)
-            {
-                Debug.Log("missing answer1 text at index " + gameData.questionsIndexes[1]);
-                errors = true;
-            }
-            if (!errors)
-            {
-                //set q and a texts
-                StartCoroutine(TypeQuestion(currentQuestion.question));
-            }
-            else
-            {
-                //get a new question maybe
-            }
+            currentQandA = gameData.questions[gameData.questionsIndexes[0]];
+            MakeQuestion(currentQandA);
+
         }
         else
         {
-            //no more questions, end game
-            if(gameData.selectionScore > gameData.scoreThreshold)
+            //no more questions, end game. Should refactor to own function, need to jazz it up 
+            if (gameData.selectionScore > gameData.scoreThreshold)
             {
                 questionText.text = "You have been selected, you lose";
             }
@@ -106,17 +79,47 @@ public class GameManager : MonoBehaviour
             Debug.Log("final score " + gameData.selectionScore);
             restartButton.SetActive(true);
         }
+    }
 
+    //sets the questions text and answer buttons based what gets pased ot it
+    private void MakeQuestion(QAndA qanda)
+    {
+        //null checks
+        bool errors = false;
+        if (qanda.question == null)
+        {
+            Debug.Log("missing question text at index " + gameData.questionsIndexes[0]);
+            errors = true;
+        }
+        if (qanda.answers[0] == null)
+        {
+            Debug.Log("missing answer1 text at index " + gameData.questionsIndexes[0]);
+            errors = true;
+        }
+        if (qanda.answers[1] == null)
+        {
+            Debug.Log("missing answer1 text at index " + gameData.questionsIndexes[1]);
+            errors = true;
+        }
+        if (!errors)
+        {
+            //set q and a texts
+            StartCoroutine(TypeQuestion(qanda));
+        }
+        else
+        {
+            //get a new question maybe
+        }
     }
 
     //types out the question text one letter at a time. Can click to finish. might need to make switch it to change color instead of type if word wrapping is funky
-    private IEnumerator TypeQuestion(string theText)
+    private IEnumerator TypeQuestion(QAndA qanda)
     {
         questionText.text = "";
         gameData.textIsPrinting = true;
-        for (int i=0; i<theText.Length; i++)
+        for (int i=0; i< qanda.question.Length; i++)
         {
-            questionText.text += theText[i];
+            questionText.text += qanda.question[i];
             if(!gameData.skipText)
             {
                 yield return new WaitForSeconds(gameData.textSpeed);
@@ -125,8 +128,8 @@ public class GameManager : MonoBehaviour
         gameData.textIsPrinting = false;
         gameData.skipText = false;
         answerButtons.SetActive(true);
-        answerText1.text = currentQuestion.answers[0].answer;
-        answerText2.text = currentQuestion.answers[1].answer;
+        answerText1.text = qanda.answers[0].answer;
+        answerText2.text = qanda.answers[1].answer;
     }
 
 
@@ -135,12 +138,12 @@ public class GameManager : MonoBehaviour
     {
         answerButtons.SetActive(false);
         //increment score
-        gameData.selectionScore += currentQuestion.answers[index].value;
+        gameData.selectionScore += currentQandA.answers[index].value;
         Debug.Log("current score" + gameData.selectionScore);
         //remove question index
         gameData.questionsIndexes.RemoveAt(0);
         //make next question
-        MakeQuestion();
+        NextQuestion();
     }
 
     public void SkipText(InputAction.CallbackContext context)

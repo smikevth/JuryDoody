@@ -17,6 +17,6 @@ public class QAndA : ScriptableObject
     public string question;
     public List<Answer> answers;
     public int silliness; //scale of 5 to start
-    public string followUp;
-    public List<Answer> followUpAnswers;
+    public QAndA followUp;
+    //public List<Answer> followUpAnswers;
 }
