@@ -49,9 +49,9 @@ public class Attorney : MonoBehaviour
         transform.LookAt(cam.transform);
         paceSet = false;
         mouthTimer += Time.deltaTime;
-        if(mouthTimer >= gameData.textSpeed)
+        if(mouthTimer >= gameData.textSpeed*2)
         {
-            mouthTimer -= gameData.textSpeed;
+            mouthTimer -= gameData.textSpeed*2;
             int rand = Random.Range(0, mouthList.Count);
             mouth.sprite = mouthList[rand];
         }
