@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //no more questions, end game. Should refactor to own function, need to jazz it up 
+            //no more questions, end game. Should refactor to own function, and need to jazz it up 
             if (gameData.selectionScore > gameData.scoreThreshold)
             {
                 questionText.text = "You have been selected, you lose";
@@ -140,10 +140,18 @@ public class GameManager : MonoBehaviour
         //increment score
         gameData.selectionScore += currentQandA.answers[index].value;
         Debug.Log("current score" + gameData.selectionScore);
-        //remove question index
-        gameData.questionsIndexes.RemoveAt(0);
-        //make next question
-        NextQuestion();
+        if(currentQandA.answers[index].triggersFollowUp)
+        {
+            currentQandA = currentQandA.followUp;
+            MakeQuestion(currentQandA);
+        }
+        else
+        {
+            //remove question index
+            gameData.questionsIndexes.RemoveAt(0);
+            //make next question
+            NextQuestion();
+        }
     }
 
     public void SkipText(InputAction.CallbackContext context)

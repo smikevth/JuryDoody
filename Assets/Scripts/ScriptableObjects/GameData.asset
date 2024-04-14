@@ -15,9 +15,13 @@ MonoBehaviour:
   selectionScore: 0
   scoreThreshold: 5
   questions:
+  - {fileID: 11400000, guid: 3900f61869da717429dd0420ad1266fc, type: 2}
   - {fileID: 11400000, guid: 8ca72b6b7938f524e9198b5f2d649c95, type: 2}
   - {fileID: 11400000, guid: abdcc0e8e1f1eec41b75042b2515d853, type: 2}
   - {fileID: 11400000, guid: b4af0b5ca39ed9745bc6a3125e44393f, type: 2}
   - {fileID: 11400000, guid: 52db06d72b312a94fa12ed717d44e0ae, type: 2}
   - {fileID: 11400000, guid: c4862954f157eeb4a841873ed57ecb33, type: 2}
   questionsIndexes: 0000000001000000020000000300000004000000
+  textSpeed: 0.05
+  skipText: 0
+  textIsPrinting: 0
