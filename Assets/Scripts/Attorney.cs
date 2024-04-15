@@ -12,6 +12,11 @@ public class Attorney : MonoBehaviour
     SpriteRenderer mouth;
     [SerializeField]
     List<Sprite> mouthList; //1st in the list is the default
+    [SerializeField]
+    GameObject happyReaction;
+    [SerializeField]
+    GameObject angryReaction;
+
     private bool paceSet = true; //to toggle between pace direction and facing camera
     private float range = 2.0f; //pacing range. attorney starts at x=-2 and will pace to x=2 they turn
     private int direction = 1; //should be 1 for moving toward camera right, -1 for left

@@ -54,21 +54,50 @@ public class GameManager : MonoBehaviour
     private void ResetData()
     {
         gameData.selectionScore = 0;
-        gameData.questionsIndexes = new List<int>();
-        for (int i=0; i<gameData.questions.Count; i++)
+        MakeQuestionsList();
+    }
+
+    //makes a list of indexes of questions to use. For now, just all questions in gamedata
+    private void MakeQuestionsList()
+    {
+        gameData.questionsList = new List<QAndA>();
+        //2 normal, 1 mildly silly, 1 no brainer, 1 very silly
+        gameData.questionsList.Add(RandomQuestionFromList(gameData.normalQuestions));
+        gameData.questionsList.Add(RandomQuestionFromList(gameData.normalQuestions));
+        gameData.questionsList.Add(RandomQuestionFromList(gameData.sillyQuestions));
+        gameData.questionsList.Add(RandomQuestionFromList(gameData.noBrainerQuestions));
+        gameData.questionsList.Add(RandomQuestionFromList(gameData.sillierQuestions));
+
+
+        /*for (int i = 0; i < gameData.questions.Count; i++)
         {
             gameData.questionsIndexes.Add(i);
+        }*/
+    }
+
+    //helper function to get a qanda in a question list at random.
+    private QAndA RandomQuestionFromList(List<QAndA> list)
+    {
+        
+        int rando = Random.Range(0, list.Count);
+        QAndA question = list[rando];
+        //get a new question if the random one was already picked. this will probably break if there are more calls to the function than questions so don't do that
+        while (gameData.questionsList.Contains(list[rando]))
+        {
+            rando = Random.Range(0, list.Count);
+            question = list[rando];
         }
+        return question;
     }
 
     //selects the question based on the current index and calls makequestion
     private void NextQuestion()
     {
         //check if any questions are left
-        if (gameData.questionsIndexes.Count > 0)
+        if (gameData.questionsList.Count > 0)
         {
             //select question from gameData list using questionsIndex. Will just go in order for now
-            currentQandA = gameData.questions[gameData.questionsIndexes[0]];
+            currentQandA = gameData.questionsList[0];
             MakeQuestion(currentQandA);
 
         }
@@ -95,17 +124,17 @@ public class GameManager : MonoBehaviour
         bool errors = false;
         if (qanda.question == null)
         {
-            Debug.Log("missing question text at index " + gameData.questionsIndexes[0]);
+            Debug.Log("missing question text " + qanda);
             errors = true;
         }
         if (qanda.answers[0] == null)
         {
-            Debug.Log("missing answer1 text at index " + gameData.questionsIndexes[0]);
+            Debug.Log("missing answer1 text " + qanda);
             errors = true;
         }
         if (qanda.answers[1] == null)
         {
-            Debug.Log("missing answer1 text at index " + gameData.questionsIndexes[1]);
+            Debug.Log("missing answer1 text " + qanda);
             errors = true;
         }
         if (!errors)
@@ -164,7 +193,7 @@ public class GameManager : MonoBehaviour
         else
         {
             //remove question index
-            gameData.questionsIndexes.RemoveAt(0);
+            gameData.questionsList.RemoveAt(0);
             //make next question
             NextQuestion();
         }

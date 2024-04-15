@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48739b93e1cf90445b364417a01a511e, type: 3}
-  m_Name: YesNo
+  m_Name: NoBrainer2
   m_EditorClassIdentifier: 
-  question: Have you ever served on a jury before?
-  answers:
-  - answer: Yes
-    value: -1
-  - answer: No
-    value: 2
+  question: 
+  answers: []
   silliness: 0
+  followUp: {fileID: 0}

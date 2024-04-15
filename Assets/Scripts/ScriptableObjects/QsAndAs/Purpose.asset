@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48739b93e1cf90445b364417a01a511e, type: 3}
-  m_Name: YesNo 4
+  m_Name: Purpose
   m_EditorClassIdentifier: 
-  question: Have you ever questioned the nature of your reality
+  question: What is my purpose?
   answers:
-  - answer: Yes
-    value: 0
-  - answer: No
-    value: 0
-  silliness: 3
+  - answer: Justice
+    value: 6
+    triggersFollowUp: 0
+  - answer: You pass butter
+    value: -3
+    triggersFollowUp: 0
+  silliness: 0
+  followUp: {fileID: 0}
