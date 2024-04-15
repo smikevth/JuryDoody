@@ -15,10 +15,10 @@ MonoBehaviour:
   question: The muffin man.
   answers:
   - answer: Who lives on Drury Lane?
-    value: -2
+    value: -1
     triggersFollowUp: 1
   - answer: No
-    value: 3
+    value: 4
     triggersFollowUp: 0
   silliness: 3
   followUp: {fileID: 11400000, guid: bc6581e0a7a4d91408ccc598fdb699e2, type: 2}

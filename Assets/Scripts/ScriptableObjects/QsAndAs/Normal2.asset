@@ -15,7 +15,7 @@ MonoBehaviour:
   question: Have you ever met anyone involved in this case before?
   answers:
   - answer: Yes
-    value: -2
+    value: -1
     triggersFollowUp: 0
   - answer: No
     value: 2

@@ -15,10 +15,10 @@ MonoBehaviour:
   question: Make an assessment.
   answers:
   - answer: I like you too
-    value: 3
+    value: 4
     triggersFollowUp: 0
   - answer: I think you're a nice modern gentleman
-    value: -2
+    value: -1
     triggersFollowUp: 0
   silliness: 4
   followUp: {fileID: 0}

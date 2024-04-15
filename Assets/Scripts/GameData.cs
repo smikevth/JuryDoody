@@ -9,7 +9,7 @@ public class GameData : ScriptableObject
 {
     [HideInInspector]
     public int selectionScore = 0; //player's current score
-    public int scoreThreshold = 5; //get selected/lose above threshold
+    public int scoreThreshold = 4; //get selected/lose above threshold
 
     //lists of all questions and their answers/data
     public List<QAndA> normalQuestions; //realish

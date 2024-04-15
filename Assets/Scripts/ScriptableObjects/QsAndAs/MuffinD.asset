@@ -18,7 +18,7 @@ MonoBehaviour:
     value: -1
     triggersFollowUp: 0
   - answer: Ok you got me
-    value: 4
+    value: 5
     triggersFollowUp: 0
   silliness: 5
   followUp: {fileID: 0}

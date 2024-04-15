@@ -15,7 +15,10 @@ MonoBehaviour:
   question: Do you want to serve on this jury?
   answers:
   - answer: Yes
-    value: 5
+    value: 6
+    triggersFollowUp: 0
   - answer: No
     value: -1
+    triggersFollowUp: 0
   silliness: 1
+  followUp: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   question: Yes that one, do you know him?
   answers:
   - answer: Yes
-    value: -1
+    value: 0
     triggersFollowUp: 0
   - answer: No
     value: -1

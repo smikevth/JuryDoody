@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 3
     triggersFollowUp: 0
   - answer: Donald Sutherland
-    value: -2
+    value: -1
     triggersFollowUp: 0
   silliness: 69
   followUp: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   question: Have you ever been the victim of a crime?
   answers:
   - answer: Yes
-    value: 1
+    value: 2
     triggersFollowUp: 0
   - answer: No
     value: -1

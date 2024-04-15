@@ -15,7 +15,7 @@ MonoBehaviour:
   question: Do you have any medical difficulties that may affect your jury service?
   answers:
   - answer: Yes
-    value: -2
+    value: -1
     triggersFollowUp: 0
   - answer: No
     value: 2
