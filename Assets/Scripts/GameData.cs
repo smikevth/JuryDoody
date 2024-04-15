@@ -38,5 +38,7 @@ public class GameData : ScriptableObject
             OnReactionChange?.Invoke();
         }
     }
-    
+
+    public bool isGameOver = true;
+
 }

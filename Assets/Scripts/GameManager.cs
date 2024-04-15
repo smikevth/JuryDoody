@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameData gameData;
     [SerializeField]
-    TMP_Text questionText;
+    TMP_Text textBox;
 
     //the two buttons are set for now, but I'd like to instantiate them as prefabs later for the option of more buttons and zaniness.
     [SerializeField]
@@ -106,11 +106,11 @@ public class GameManager : MonoBehaviour
             //no more questions, end game. Should refactor to own function, and need to jazz it up 
             if (gameData.selectionScore > gameData.scoreThreshold)
             {
-                questionText.text = "You have been selected, you lose";
+                StartCoroutine(TypeWords("You have been selected, you lose"));
             }
             else
             {
-                questionText.text = "You have been excused, you win";
+                StartCoroutine(TypeWords("You have been excused, you win"));
             }
             Debug.Log("final score " + gameData.selectionScore);
             restartButton.SetActive(true);
@@ -151,33 +151,38 @@ public class GameManager : MonoBehaviour
     //types out the question text one letter at a time. Can click to finish. might need to make switch it to change color instead of type if word wrapping is funky
     private IEnumerator TypeQuestion(QAndA qanda)
     {
-        questionText.text = "";
-        gameData.textIsPrinting = true;
-        for (int i=0; i< qanda.question.Length; i++)
-        {
-            questionText.text += qanda.question[i];
-            if(!gameData.skipText)
-            {
-                clackTimer ++;
-                if(clackTimer >= clackTick)
-                {
-                    int rando = Random.Range(0, clackClips.Count);
-                    sfxPlayer.PlayOneShot(clackClips[rando]);
-                    clackTimer -= clackTick;
-                }
-                    
-                
-                yield return new WaitForSeconds(gameData.textSpeed);
-            }
-        }
-        gameData.textIsPrinting = false;
-        gameData.skipText = false;
+        yield return TypeWords(qanda.question);
+
         answerButtons.SetActive(true);
         answerText1.text = qanda.answers[0].answer;
         answerText2.text = qanda.answers[1].answer;
     }
 
+    private IEnumerator TypeWords(string words)
+    {
+        textBox.text = "";
+        gameData.textIsPrinting = true;
+        for (int i = 0; i < words.Length; i++)
+        {
+            textBox.text += words[i];
+            if (!gameData.skipText)
+            {
+                clackTimer++;
+                if (clackTimer >= clackTick)
+                {
+                    int rando = Random.Range(0, clackClips.Count);
+                    sfxPlayer.PlayOneShot(clackClips[rando]);
+                    clackTimer -= clackTick;
+                }
 
+
+                yield return new WaitForSeconds(gameData.textSpeed);
+            }
+        }
+        gameData.textIsPrinting = false;
+        gameData.skipText = false;
+
+    }
 
     public void ButtonAnswer(int index)
     {

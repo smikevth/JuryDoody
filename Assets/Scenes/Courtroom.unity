@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: 89fc275b5b453af41b58b101971ec873, type: 2}
-  questionText: {fileID: 1377772433}
+  textBox: {fileID: 1377772433}
   answerButtons: {fileID: 1043170772}
   answerText1: {fileID: 646109452}
   answerText2: {fileID: 550011933}
@@ -5854,7 +5854,7 @@ GameObject:
   - component: {fileID: 1377772434}
   - component: {fileID: 1377772433}
   m_Layer: 5
-  m_Name: QuestionText
+  m_Name: TextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
