@@ -7,17 +7,8 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "GameData", menuName = "ScriptableObjects/GameData", order = 0)]
 public class GameData : ScriptableObject
 {
-    public UnityEvent OnScoreChange;
-    private int SelectionScore; //player's current score
     [HideInInspector]
-    public int selectionScore {
-        get => SelectionScore;
-        set
-        {
-            SelectionScore = value;
-            OnScoreChange?.Invoke();
-        }
-    }
+    public int selectionScore = 0; //player's current score
     public int scoreThreshold = 5; //get selected/lose above threshold
 
     //lists of all questions and their answers/data
@@ -35,4 +26,17 @@ public class GameData : ScriptableObject
     [HideInInspector]
     public bool textIsPrinting = false; //set to true while printing text
 
+
+    public UnityEvent OnReactionChange;
+    private int ReactionScore = 0; //amount score changed with last answer
+    public int reactionScore
+    {
+        get => ReactionScore;
+        set
+        {
+            ReactionScore = value;
+            OnReactionChange?.Invoke();
+        }
+    }
+    
 }

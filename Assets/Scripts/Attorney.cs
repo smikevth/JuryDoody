@@ -23,11 +23,12 @@ public class Attorney : MonoBehaviour
     private float moveSpeed = 1.0f;
 
     private float mouthTimer = 0.0f; //to pace mouth animation
+    private float reactionHideTime = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameData.OnReactionChange.AddListener(SetReaction);
     }
 
     // Update is called once per frame
@@ -47,6 +48,27 @@ public class Attorney : MonoBehaviour
             }
             Pace();
         }
+    }
+
+    private void SetReaction()
+    {
+        Debug.Log("set reaction");
+        if(gameData.reactionScore > 0)
+        {
+            happyReaction.SetActive(true);
+            StartCoroutine(HideReaction(happyReaction));
+        }
+        else
+        {
+            angryReaction.SetActive(true);
+            StartCoroutine(HideReaction(angryReaction));
+        }
+    }
+
+    private IEnumerator HideReaction(GameObject reaction)
+    {
+        yield return new WaitForSeconds(reactionHideTime);
+        reaction.SetActive(false);
     }
 
     private void JimTheCamera()

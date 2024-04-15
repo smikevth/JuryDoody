@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48739b93e1cf90445b364417a01a511e, type: 3}
-  m_Name: Normal4
+  m_Name: Silly3
   m_EditorClassIdentifier: 
-  question: Do you have any medical difficulties that may affect your jury service?
+  question: Do you giggle when you hear the word "duty"?
   answers:
-  - answer: Yes
-    value: -2
+  - answer: Tee hee
+    value: -1
     triggersFollowUp: 0
   - answer: No
-    value: 2
+    value: 1
     triggersFollowUp: 0
   silliness: 0
   followUp: {fileID: 0}

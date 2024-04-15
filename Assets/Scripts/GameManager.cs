@@ -183,8 +183,9 @@ public class GameManager : MonoBehaviour
     {
         answerButtons.SetActive(false);
         //increment score
-        gameData.selectionScore += currentQandA.answers[index].value;
-        Debug.Log("current score" + gameData.selectionScore);
+        int points = currentQandA.answers[index].value;
+        gameData.selectionScore += points;
+        gameData.reactionScore = points;
         if(currentQandA.answers[index].triggersFollowUp)
         {
             currentQandA = currentQandA.followUp;
