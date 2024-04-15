@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     AudioSource sfxPlayer;
     [SerializeField]
     List<AudioClip> clackClips;
+    [SerializeField]
+    GameObject winMessage;
+    [SerializeField]
+    GameObject loseMessage;
 
     private QAndA currentQandA;
     private int clackTimer = 0;
@@ -48,9 +52,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator IntroSequence()
     {
-        yield return StartCoroutine(TypeWords("Gavel gavel gavel!"));
+        yield return TypeWords("Gavel gavel gavel!");
         yield return new WaitForSeconds(textWait);
-        yield return StartCoroutine(TypeWords("OK counsel, you maybe begin questioning juror #1."));
+        yield return TypeWords("OK counsel, you maybe begin questioning Juror #1.");
         yield return new WaitForSeconds(textWait);
         InitializeGame();
     }
@@ -59,6 +63,8 @@ public class GameManager : MonoBehaviour
     {
         ResetData();
         restartButton.SetActive(false);
+        loseMessage.SetActive(false);
+        winMessage.SetActive(false);
         gameData.isGameOver = false;
         //make 1st Q and A
         NextQuestion();
@@ -94,7 +100,7 @@ public class GameManager : MonoBehaviour
         
         int rando = Random.Range(0, list.Count);
         QAndA question = list[rando];
-        //get a new question if the random one was already picked. this will probably break if there are more calls to the function than questions so don't do that
+        //get a new question if the random one was already picked. this will probably break if there are more calls to the function using the same list than questions in that list so don't do that
         while (gameData.questionsList.Contains(list[rando]))
         {
             rando = Random.Range(0, list.Count);
@@ -118,17 +124,32 @@ public class GameManager : MonoBehaviour
         {
             //no more questions, end game. Should refactor to own function, and need to jazz it up 
             gameData.isGameOver = true;
-            if (gameData.selectionScore > gameData.scoreThreshold)
-            {
-                StartCoroutine(TypeWords("You have been selected, you lose"));
-            }
-            else
-            {
-                StartCoroutine(TypeWords("You have been excused, you win"));
-            }
-            Debug.Log("final score " + gameData.selectionScore);
-            restartButton.SetActive(true);
+            StartCoroutine(EndingSequence());
+
+
+            
         }
+    }
+
+    private IEnumerator EndingSequence()
+    {
+        yield return TypeWords("Gavel gavel gavel!");
+        yield return new WaitForSeconds(textWait);
+        if (gameData.selectionScore > gameData.scoreThreshold)
+        {
+            StartCoroutine(TypeWords("The prosecution sees no reason to dismiss Juror #1."));
+            yield return new WaitForSeconds(textWait);
+            loseMessage.SetActive(true);
+        }
+        else
+        {
+            StartCoroutine(TypeWords("The prosecution would like to thank and dismiss Juror #1."));
+            yield return new WaitForSeconds(textWait);
+            winMessage.SetActive(true);
+        }
+        yield return new WaitForSeconds(textWait);
+        Debug.Log("final score " + gameData.selectionScore);
+        restartButton.SetActive(true);
     }
 
     //sets the questions text and answer buttons based what gets pased ot it
