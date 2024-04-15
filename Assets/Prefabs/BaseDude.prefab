@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 3983902522323347767}
   - component: {fileID: 6026605090392941267}
   - component: {fileID: 4903566121152772815}
+  - component: {fileID: 3190603373143231250}
+  - component: {fileID: 1586074990866891107}
   m_Layer: 0
   m_Name: BaseDude
   m_TagString: Untagged
@@ -196,6 +198,39 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &3190603373143231250
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4963573679660413122}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e119b0d68eee8c44395cfe41d2f2be98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1586074990866891107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4963573679660413122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3dda48a91f6a54bb6e80633ebba066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5192914776348301408
 GameObject:
   m_ObjectHideFlags: 0
