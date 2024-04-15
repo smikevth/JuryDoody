@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 3
     triggersFollowUp: 0
   - answer: I think you're a nice modern gentleman
-    value: -4
+    value: -2
     triggersFollowUp: 0
   silliness: 4
   followUp: {fileID: 0}

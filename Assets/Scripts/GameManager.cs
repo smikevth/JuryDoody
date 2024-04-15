@@ -30,11 +30,14 @@ public class GameManager : MonoBehaviour
     private QAndA currentQandA;
     private int clackTimer = 0;
     private int clackTick = 2; //with the timer, slows down clacking
+    private float textWait = 1.0f; //little wait between texts
 
     // Start is called before the first frame update
     void Start()
     {
-        InitializeGame();
+        gameData.isGameOver = true;
+        StartCoroutine(IntroSequence());
+        
     }
 
     // Update is called once per frame
@@ -43,10 +46,20 @@ public class GameManager : MonoBehaviour
         
     }
 
+    private IEnumerator IntroSequence()
+    {
+        yield return StartCoroutine(TypeWords("Gavel gavel gavel!"));
+        yield return new WaitForSeconds(textWait);
+        yield return StartCoroutine(TypeWords("OK counsel, you maybe begin questioning juror #1."));
+        yield return new WaitForSeconds(textWait);
+        InitializeGame();
+    }
+
     public void InitializeGame()
     {
         ResetData();
         restartButton.SetActive(false);
+        gameData.isGameOver = false;
         //make 1st Q and A
         NextQuestion();
     }
@@ -104,6 +117,7 @@ public class GameManager : MonoBehaviour
         else
         {
             //no more questions, end game. Should refactor to own function, and need to jazz it up 
+            gameData.isGameOver = true;
             if (gameData.selectionScore > gameData.scoreThreshold)
             {
                 StartCoroutine(TypeWords("You have been selected, you lose"));

@@ -15,7 +15,10 @@ MonoBehaviour:
   question: Do you like my hair?
   answers:
   - answer: Yes
-    value: 1
+    value: 2
+    triggersFollowUp: 0
   - answer: No
-    value: -2
+    value: -1
+    triggersFollowUp: 0
   silliness: 2
+  followUp: {fileID: 0}

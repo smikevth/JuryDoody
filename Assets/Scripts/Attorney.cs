@@ -34,19 +34,22 @@ public class Attorney : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameData.textIsPrinting)
+        if(!gameData.isGameOver)
         {
-            //talking
-            JimTheCamera();
-        }
-        else
-        {
-            //pacing
-            if(!paceSet)
+            if (gameData.textIsPrinting)
             {
-                SetPace();
+                //talking
+                JimTheCamera();
             }
-            Pace();
+            else
+            {
+                //pacing
+                if (!paceSet)
+                {
+                    SetPace();
+                }
+                Pace();
+            }
         }
     }
 

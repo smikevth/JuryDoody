@@ -15,7 +15,10 @@ MonoBehaviour:
   question: Have you ever met anyone involved in this case before?
   answers:
   - answer: Yes
-    value: -5
+    value: -2
+    triggersFollowUp: 0
   - answer: No
     value: 2
+    triggersFollowUp: 0
   silliness: 0
+  followUp: {fileID: 0}
