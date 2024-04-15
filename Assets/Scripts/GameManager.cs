@@ -22,8 +22,15 @@ public class GameManager : MonoBehaviour
     TMP_Text answerText2;
     [SerializeField]
     GameObject restartButton;
+    [SerializeField]
+    AudioSource sfxPlayer;
+    [SerializeField]
+    List<AudioClip> clackClips;
 
     private QAndA currentQandA;
+    private int clackTimer = 0;
+    private int clackTick = 2; //with the timer, slows down clacking
+
     // Start is called before the first frame update
     void Start()
     {
@@ -122,6 +129,15 @@ public class GameManager : MonoBehaviour
             questionText.text += qanda.question[i];
             if(!gameData.skipText)
             {
+                clackTimer ++;
+                if(clackTimer >= clackTick)
+                {
+                    int rando = Random.Range(0, clackClips.Count);
+                    sfxPlayer.PlayOneShot(clackClips[rando]);
+                    clackTimer -= clackTick;
+                }
+                    
+                
                 yield return new WaitForSeconds(gameData.textSpeed);
             }
         }
