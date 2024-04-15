@@ -20,5 +20,5 @@ MonoBehaviour:
   - answer: Egg
     value: -1
     triggersFollowUp: 0
-  silliness: 0
+  silliness: 2
   followUp: {fileID: 0}
