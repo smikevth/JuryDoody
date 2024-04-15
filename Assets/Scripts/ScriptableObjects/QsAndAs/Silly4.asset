@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48739b93e1cf90445b364417a01a511e, type: 3}
-  m_Name: Debate
+  m_Name: Silly4
   m_EditorClassIdentifier: 
-  question: Who's hotter, Elliott Gould or Donald Sutherland?
+  question: Which came first, the chicken or the egg?
   answers:
-  - answer: Elliott Gould
-    value: 3
+  - answer: Chicken
+    value: 1
     triggersFollowUp: 0
-  - answer: Donald Sutherland
-    value: -2
+  - answer: Egg
+    value: -1
     triggersFollowUp: 0
-  silliness: 69
+  silliness: 0
   followUp: {fileID: 0}

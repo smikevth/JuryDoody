@@ -38,6 +38,17 @@ public class GameData : ScriptableObject
             OnReactionChange?.Invoke();
         }
     }
+    public UnityEvent OnDeanChange;
+    private bool DeanReact; // bool to trigger the dean's reaction to a question
+    public bool deanReact
+    {
+        get => DeanReact;
+        set
+        {
+            DeanReact = value;
+            OnDeanChange?.Invoke();
+        }
+    }
 
     public bool isGameOver = true;
 

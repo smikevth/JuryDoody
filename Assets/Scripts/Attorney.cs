@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attorney : MonoBehaviour
+public class Attorney : BaseCharacter
 {
-    [SerializeField]
-    GameData gameData;
+    
     [SerializeField]
     GameObject cam;
     [SerializeField]
     SpriteRenderer mouth;
     [SerializeField]
     List<Sprite> mouthList; //1st in the list is the default
-    [SerializeField]
-    GameObject happyReaction;
-    [SerializeField]
-    GameObject angryReaction;
+
 
     private bool paceSet = true; //to toggle between pace direction and facing camera
     private float range = 2.0f; //pacing range. attorney starts at x=-2 and will pace to x=2 they turn
@@ -23,7 +19,7 @@ public class Attorney : MonoBehaviour
     private float moveSpeed = 1.0f;
 
     private float mouthTimer = 0.0f; //to pace mouth animation
-    private float reactionHideTime = 2.0f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -53,26 +49,7 @@ public class Attorney : MonoBehaviour
         }
     }
 
-    private void SetReaction()
-    {
-        Debug.Log("set reaction");
-        if(gameData.reactionScore > 0)
-        {
-            happyReaction.SetActive(true);
-            StartCoroutine(HideReaction(happyReaction));
-        }
-        else
-        {
-            angryReaction.SetActive(true);
-            StartCoroutine(HideReaction(angryReaction));
-        }
-    }
 
-    private IEnumerator HideReaction(GameObject reaction)
-    {
-        yield return new WaitForSeconds(reactionHideTime);
-        reaction.SetActive(false);
-    }
 
     private void JimTheCamera()
     {

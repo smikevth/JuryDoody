@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
     private void ResetData()
     {
         gameData.selectionScore = 0;
+        gameData.deanReact = false;
         MakeQuestionsList();
     }
 
@@ -226,6 +227,12 @@ public class GameManager : MonoBehaviour
         int points = currentQandA.answers[index].value;
         gameData.selectionScore += points;
         gameData.reactionScore = points;
+        if(currentQandA.silliness == 69 && points < 0)
+            //question that triggers the dean's reaction
+        {
+            gameData.deanReact = true;
+        }
+
         if(currentQandA.answers[index].triggersFollowUp)
         {
             currentQandA = currentQandA.followUp;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48739b93e1cf90445b364417a01a511e, type: 3}
   m_Name: MuffinB
   m_EditorClassIdentifier: 
-  question: The muffin man
+  question: The muffin man.
   answers:
   - answer: Who lives on Drury Lane?
     value: -2
@@ -20,5 +20,5 @@ MonoBehaviour:
   - answer: No
     value: 3
     triggersFollowUp: 0
-  silliness: 0
+  silliness: 3
   followUp: {fileID: 11400000, guid: bc6581e0a7a4d91408ccc598fdb699e2, type: 2}
