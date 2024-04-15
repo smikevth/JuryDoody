@@ -14,6 +14,8 @@ public abstract class BaseCharacter : MonoBehaviour
     [SerializeField]
     private float reactionHideTime = 2.0f;
 
+    private IEnumerator hideCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,15 +30,23 @@ public abstract class BaseCharacter : MonoBehaviour
 
     protected virtual void SetReaction()
     {
+        if(hideCoroutine != null)
+        {
+            StopCoroutine(hideCoroutine);
+        }
         if (gameData.reactionScore > 0)
         {
+            angryReaction.SetActive(false);
             happyReaction.SetActive(true);
-            StartCoroutine(HideReaction(happyReaction));
+            hideCoroutine = HideReaction(happyReaction);
+            StartCoroutine(hideCoroutine);
         }
         else
         {
+            happyReaction.SetActive(false);
             angryReaction.SetActive(true);
-            StartCoroutine(HideReaction(angryReaction));
+            hideCoroutine = HideReaction(angryReaction);
+            StartCoroutine(hideCoroutine);
         }
     }
 

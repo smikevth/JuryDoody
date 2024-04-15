@@ -81,11 +81,11 @@ public class GameManager : MonoBehaviour
     private void MakeQuestionsList()
     {
         gameData.questionsList = new List<QAndA>();
-        //2 normal, 1 mildly silly, 1 no brainer, 1 very silly
+        //2 normal, 2 mildly silly, 1 very silly. Make sure to not get more questions than there are
         gameData.questionsList.Add(RandomQuestionFromList(gameData.normalQuestions));
         gameData.questionsList.Add(RandomQuestionFromList(gameData.normalQuestions));
         gameData.questionsList.Add(RandomQuestionFromList(gameData.sillyQuestions));
-        gameData.questionsList.Add(RandomQuestionFromList(gameData.noBrainerQuestions));
+        gameData.questionsList.Add(RandomQuestionFromList(gameData.sillyQuestions));
         gameData.questionsList.Add(RandomQuestionFromList(gameData.sillierQuestions));
 
 

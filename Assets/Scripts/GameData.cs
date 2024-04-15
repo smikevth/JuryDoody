@@ -50,6 +50,7 @@ public class GameData : ScriptableObject
         }
     }
 
+    [HideInInspector]
     public bool isGameOver = true;
 
 }
