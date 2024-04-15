@@ -211,7 +211,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e119b0d68eee8c44395cfe41d2f2be98, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -231,6 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3dda48a91f6a54bb6e80633ebba066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swayTick: 3
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5192914776348301408
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,7 +28,6 @@ public abstract class BaseCharacter : MonoBehaviour
 
     protected virtual void SetReaction()
     {
-        Debug.Log("set reaction");
         if (gameData.reactionScore > 0)
         {
             happyReaction.SetActive(true);
