@@ -15,7 +15,7 @@ MonoBehaviour:
   question: Do you know the muffin man?
   answers:
   - answer: The muffin man?
-    value: -1
+    value: 0
     triggersFollowUp: 1
   - answer: No
     value: 3

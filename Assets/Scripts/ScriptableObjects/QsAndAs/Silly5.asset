@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48739b93e1cf90445b364417a01a511e, type: 3}
-  m_Name: MuffinB
+  m_Name: Silly5
   m_EditorClassIdentifier: 
-  question: The muffin man.
+  question: Are you a cat person or a dog person?
   answers:
-  - answer: Who lives on Drury Lane?
-    value: 0
-    triggersFollowUp: 1
-  - answer: No
-    value: 3
+  - answer: Cat
+    value: -1
     triggersFollowUp: 0
-  silliness: 3
-  followUp: {fileID: 11400000, guid: bc6581e0a7a4d91408ccc598fdb699e2, type: 2}
+  - answer: Dog
+    value: 1
+    triggersFollowUp: 0
+  silliness: 0
+  followUp: {fileID: 0}

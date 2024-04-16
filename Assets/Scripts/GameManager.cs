@@ -31,10 +31,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject loseMessage;
 
+    [SerializeField]
+    Button lowButton;
+    [SerializeField]
+    Button medButton;
+    [SerializeField]
+    Button highButton;
+
     private QAndA currentQandA;
     private int clackTimer = 0;
     private int clackTick = 2; //with the timer, slows down clacking
-    private float textWait = 1.0f; //little wait between texts
+    private float textWait = 1.5f; //little wait between texts
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +59,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator IntroSequence()
     {
-        yield return TypeWords("Gavel gavel gavel!");
+        yield return TypeWords("Gavel! Gavel! Gavel!");
         yield return new WaitForSeconds(textWait);
-        yield return TypeWords("OK counsel, you maybe begin questioning Juror #1.");
+        yield return TypeWords("OK counsel, you may begin questioning Juror #1.");
         yield return new WaitForSeconds(textWait);
         InitializeGame();
     }
@@ -134,7 +141,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EndingSequence()
     {
-        yield return TypeWords("Gavel gavel gavel!");
+        yield return TypeWords("Gavel! Gavel! Gavel!");
         yield return new WaitForSeconds(textWait);
         if (gameData.selectionScore > gameData.scoreThreshold)
         {
@@ -148,8 +155,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(textWait);
             winMessage.SetActive(true);
         }
-        yield return new WaitForSeconds(textWait);
-        Debug.Log("final score " + gameData.selectionScore);
+        yield return new WaitForSeconds(textWait/2);
         restartButton.SetActive(true);
     }
 
@@ -252,6 +258,28 @@ public class GameManager : MonoBehaviour
         if(context.performed && gameData.textIsPrinting && !gameData.skipText)
         {
             gameData.skipText = true;
+        }
+    }
+
+    public void SetQuality(string quality)
+    {
+        lowButton.interactable = true;
+        medButton.interactable = true;
+        highButton.interactable = true;
+        switch (quality)
+        {
+            case "Low":
+                QualitySettings.SetQualityLevel(0, true);
+                lowButton.interactable = false;
+                break;
+            case "Medium":
+                QualitySettings.SetQualityLevel(1, true);
+                medButton.interactable = false;
+                break;
+            case "High":
+                QualitySettings.SetQualityLevel(2, true);
+                highButton.interactable = false;
+                break;
         }
     }
 }
